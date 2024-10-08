@@ -32,9 +32,9 @@ function RingForm({ ringProperties, onChange }) {
             {ringProperties.ringSize || "Select Ring Size"}
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item eventKey="6">6</Dropdown.Item>
-            <Dropdown.Item eventKey="7">7</Dropdown.Item>
-            <Dropdown.Item eventKey="8">8</Dropdown.Item>
+            <Dropdown.Item eventKey="1">1</Dropdown.Item>
+            <Dropdown.Item eventKey="2">2</Dropdown.Item>
+            <Dropdown.Item eventKey="3">3</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
