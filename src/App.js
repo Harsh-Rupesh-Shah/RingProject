@@ -5,10 +5,17 @@ import './App.css';
 
 function App() {
   const [ringProperties, setRingProperties] = useState({
-    size: 5,
-    bandThickness: 2,
-    color: '#FFD700',  // Default gold color for the ring
-    gemColor: '#00FFFF', // Default gemstone color (cyan)
+    shankDesignStyle: '', // To store selected shank design
+    ringSize: '',          // To store selected ring size
+    shankDiameter: '',     // To store selected shank diameter
+    solitaireShape: '',    // To store selected solitaire shape
+    cut: '',               // To store selected cut
+    color: '',             // To store selected color
+    clarity: '',           // To store selected clarity
+    solitaire: '',         // To store selected solitaire
+    halo: '',              // To store selected halo type
+    gold: '',              // To store selected gold type
+    goldPurities: ''    // To store selected gold purity
   });
 
   const handleInputChange = (name, value) => {
