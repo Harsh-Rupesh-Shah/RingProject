@@ -14,7 +14,7 @@ function RingForm({ ringProperties, onChange }) {
   return (
     <form>
       <div className='mb-3'>
-      <Dropdown onSelect={(eventKey) => handleDropdownSelect('shankDesign', eventKey)}>
+      <Dropdown onSelect={(eventKey) => handleDropdownSelect('shankDesignStyle', eventKey)}>
       <Dropdown.Toggle variant="secondary" id="dropdown-ring-size">
             {ringProperties.shankDesignStyle || "Select Shank Design"}
           </Dropdown.Toggle>
