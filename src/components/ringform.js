@@ -1,16 +1,52 @@
-import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import "./ringform.css";
+import React, { useState } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import './ringform.css';
 
 function RingForm({ ringProperties, onChange }) {
+  // State to keep track of the dummy costs
+  const [costs, setCosts] = useState({
+    shankDesign: 0,
+    ringSize: 0,
+    shankDiameter: 0,
+    solitaireShape: 0,
+    cut: 0,
+    color: 0,
+    clarity: 0,
+    solitaire: 0,
+    halo: 0,
+    gold: 0,
+    goldPurities: 0,
+  });
+
+  // Dummy cost mapping for each property
+  const costMapping = {
+    shankDesign: { "No Eternity": 100, "Half Eternity": 200, "Full Eternity": 300 },
+    ringSize: { "1": 50, "2": 75, "3": 100 },
+    shankDiameter: { "1.5mm": 150, "2mm": 175, "2.5mm": 200 },
+    solitaireShape: { "Round": 300, "Princess": 350, "Oval": 400, "Cushion": 450 },
+    cut: { "Excellent": 500, "Very Good": 400, "Good": 300 },
+    color: { "D": 600, "E": 500, "F": 400, "G": 300 },
+    clarity: { "IF": 700, "VVS1": 600, "VVS2": 500, "VS1": 400, "VS2": 300 },
+    solitaire: { "1ct": 1000, "2ct": 1500 },
+    halo: { "Single Halo": 200, "Double Halo": 400 },
+    gold: { "Rose Gold": 500, "Yellow Gold": 400, "White Gold": 450 },
+    goldPurities: { "14k": 200, "18k": 300 },
+  };
+
+  // Handle dropdown selection and update cost
   const handleDropdownSelect = (name, eventKey) => {
     onChange(name, eventKey);
-    console.log(`Selected ${name}: ${eventKey}`);
-    console.log("Current Ring Properties:", {
-      ...ringProperties,
-      [name]: eventKey,
-    });
+
+    // Update cost for the selected property
+    const newCost = costMapping[name][eventKey] || 0;
+    setCosts(prevCosts => ({
+      ...prevCosts,
+      [name]: newCost,
+    }));
   };
+
+  // Calculate total cost
+  const totalCost = Object.values(costs).reduce((acc, curr) => acc + curr, 0);
 
   return (
     <>
@@ -39,6 +75,8 @@ function RingForm({ ringProperties, onChange }) {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.shankDesign}</p>
+
         </div>
 
         <div className="input-form">
@@ -57,6 +95,8 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="3">3</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.ringSize}</p>
+
         </div>
 
         <div className="input-form">
@@ -77,6 +117,7 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="2.5mm">2.5mm</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.shankDiameter}</p>
         </div>
 
         <div className="input-form">
@@ -98,6 +139,7 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="Cushion">Cushion</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.solitaireShape}</p>
         </div>
 
         <div className="input-form">
@@ -116,6 +158,8 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="Good">Good</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.cut}</p>
+
         </div>
 
         <div className="input-form">
@@ -135,6 +179,8 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="G">G</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.color}</p>
+
         </div>
 
         <div className="input-form">
@@ -155,6 +201,8 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="VS2">VS2</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.clarity}</p>
+
         </div>
 
         <div className="input-form">
@@ -172,6 +220,8 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="2ct">2ct</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.solitaire}</p>
+
         </div>
 
         <div className="input-form">
@@ -189,6 +239,8 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="Double Halo">Double Halo</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.halo}</p>
+
         </div>
 
         <div className="input-form">
@@ -207,6 +259,7 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="White Gold">White Gold</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.gold}</p>
         </div>
 
         <div className="input-form">
@@ -226,13 +279,18 @@ function RingForm({ ringProperties, onChange }) {
               <Dropdown.Item eventKey="18k">18k</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.goldPurities}</p>
+
         </div>
       </form>
     </div>
+    <div className="cost-summary">
+        <h2>Total Cost: ₹{totalCost}</h2>
+      </div>
     <div className="card">
     <div id="submit-btn">
-          <button className="btn btn-primary me-4 w-100">Submit</button>
-          <button className="btn btn-primary w-100">Reset</button>
+          <button className="btn btn-primary me-4 w-100">Reset</button>
+          <button className="btn btn-primary w-100">Submit</button>
         </div>
     </div>
     </>
