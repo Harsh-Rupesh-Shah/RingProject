@@ -74,12 +74,12 @@ form .input-form{
   }
   
   .my-card{
-    max-height: 95%;
+    max-height: 100%;
     overflow-y: auto;
   }
   
   .show-dropdown {
-      width: 72%;
+      width: 95%;
       color: black;
   }
   
@@ -128,6 +128,6 @@ form .input-form{
 
   #cost-p{
     position: absolute;
-    left: 80%;
+    left: 75%;
     margin: -30px;
   }

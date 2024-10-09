@@ -59,11 +59,11 @@ function RingForm({ ringProperties, onChange }) {
           </label>
           <Dropdown
             onSelect={(eventKey) =>
-              handleDropdownSelect("shankDesignStyle", eventKey)
+              handleDropdownSelect("shankDesign", eventKey)
             }
           >
             <Dropdown.Toggle id="dropdown-shank-design">
-              {ringProperties.shankDesignStyle || "Select"}
+              {ringProperties.shankDesign || "Select"}
             </Dropdown.Toggle>
             <Dropdown.Menu className="show-dropdown">
               <Dropdown.Item eventKey="No Eternity">No Eternity</Dropdown.Item>
@@ -287,12 +287,12 @@ function RingForm({ ringProperties, onChange }) {
     <div className="cost-summary">
         <h2>Total Cost: ₹{totalCost}</h2>
       </div>
-    <div className="card">
+    {/* <div className="card">
     <div id="submit-btn">
           <button className="btn btn-primary me-4 w-100">Reset</button>
           <button className="btn btn-primary w-100">Submit</button>
         </div>
-    </div>
+    </div> */}
     </>
   );
 }
