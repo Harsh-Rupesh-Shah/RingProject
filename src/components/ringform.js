@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
+import './ringform.css';
 
 function RingForm({ ringProperties, onChange }) {
   const handleDropdownSelect = (name, eventKey) => {
@@ -12,8 +13,9 @@ function RingForm({ ringProperties, onChange }) {
   };
 
   return (
-    <form>
-      <div className='mb-3'>
+    <div className='ringform-title'>
+      <form style={{ textAlign: 'center', width: '100px' }}>
+      <div className='mb-3 input-form'>
       <Dropdown onSelect={(eventKey) => handleDropdownSelect('shankDesign', eventKey)}>
       <Dropdown.Toggle variant="secondary" id="dropdown-ring-size">
             {ringProperties.shankDesignStyle || "Select Shank Design"}
@@ -26,7 +28,7 @@ function RingForm({ ringProperties, onChange }) {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('ringSize', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-ring-size">
             {ringProperties.ringSize || "Select Ring Size"}
@@ -39,7 +41,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('shankDiameter', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-shank-diameter">
             {ringProperties.shankDiameter || "Select Shank Diameter"}
@@ -52,7 +54,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('solitaireShape', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-solitaire-shape">
             {ringProperties.solitaireShape || "Select Solitaire Shape"}
@@ -66,7 +68,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('cut', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-cut">
             {ringProperties.cut || "Select Cut"}
@@ -79,7 +81,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('color', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-color">
             {ringProperties.color || "Select Color"}
@@ -93,7 +95,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('clarity', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-clarity">
             {ringProperties.clarity || "Select Clarity"}
@@ -108,7 +110,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('solitaire', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-solitaire">
             {ringProperties.solitaire || "Select Solitaire"}
@@ -120,7 +122,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('halo', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-halo">
             {ringProperties.halo || "Select Halo"}
@@ -132,7 +134,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('gold', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-gold">
             {ringProperties.gold || "Select Gold Type"}
@@ -145,7 +147,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 input-form">
         <Dropdown onSelect={(eventKey) => handleDropdownSelect('goldPurities', eventKey)}>
           <Dropdown.Toggle variant="secondary" id="dropdown-gold-purities">
             {ringProperties.goldPurities || "Select Gold Purity"}
@@ -157,6 +159,7 @@ function RingForm({ ringProperties, onChange }) {
         </Dropdown>
       </div>
     </form>
+    </div>
   );
 }
 
