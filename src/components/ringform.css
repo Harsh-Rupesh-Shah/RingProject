@@ -5,29 +5,14 @@
     padding-bottom: 1rem;
 }
 
-/* form .input-form{
-    padding-left: 5px;
-    padding-right: 5px;
-} */
-
-/* Center the header */
-/* .ringform-title {
-  text-align: center;
-  padding: 20px;
-} */
-
 .ringform-title h2 {
     text-align: center;
-  /* padding: 20px; */
-  /* font-size: 1.5rem; */
-  /* margin-bottom: 20px; */
 }
 
 /* Style the form container */
 .ringform-title form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 90%;
   max-width: 600px;
   margin: auto;
@@ -52,19 +37,20 @@
 }
 
 #submit-btn {
- align-items: center;   
+ /* align-items: end;    */
  display: flex;
- padding-top: 10px;
- max-width: fit-content;
+ justify-content: center;
+ padding: 5px;
 }
 
 .my-card{
-  max-height: 720px;
+  max-height: 680px;
   overflow-y: auto;
 }
 
 .show-dropdown {
-    width: 100%;
+    width: 72%;
+    color: black;
 }
 
 /* Make the dropdown background transparent */
@@ -74,33 +60,19 @@
   border: 1px solid #ced4da; /* Add a border for visibility */
   /* padding-right: 1.5rem; */
   width: 100%;
-  text-align: center; /* Align text to the left */
+  text-align: left; /* Align text to the left */
 }
 
 /* Style the caret icon (▼) on the right */
 .input-form .dropdown-toggle::after {
-  /* content: "\25BC"; Unicode for down arrow (▼) */
-  /* position: absolute; */
-  /* right: 10px;
-  top: 50%; */
-  /* transform: translateY(-50%); */
-  color: black; /* Set the arrow color to black */
+  display: none;
 }
 
-/* Style the dropdown menu */
-.show-dropdown {
-  width: 100%; /* Ensure it matches the dropdown width */
-  background-color: white; /* Background for dropdown options */
-  border: 1px solid #ced4da; /* Border around the dropdown options */
-  color: black; /* Option text color */
-}
-
-/* Remove the background color of selected items */
 .input-form .dropdown-menu .dropdown-item {
   background-color: transparent;
   color: black;
 }
 
-.input-form .dropdown-menu .dropdown-item:hover {
-  color: black;
+.bold {
+    font-weight: bold;
 }
