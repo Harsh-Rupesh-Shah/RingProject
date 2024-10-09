@@ -1,28 +1,119 @@
 .ringform-title{
     display: flex;
-    height: 100vh;
-    /* justify-content: center; */
-    /* align-items: center; */
+    /* height: 100vh; */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
-form{
+.ringform-title h2 {
     text-align: center;
-    width: 100px;
-    margin: 5px;
+}
+
+/* Style the form container */
+.ringform-title form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Make dropdowns have consistent width and be responsive */
+.input-form .dropdown-toggle {
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-form {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+/* Center the button */
+.ringform-title button {
+  width: 100%;
+  max-width: 550px;
 }
 
 form .input-form{
     padding-left: 5px;
     padding-right: 5px;
 }
+.ringform-title form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  /* Make dropdowns have consistent width and be responsive */
+  .input-form .dropdown-toggle {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .input-form {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  /* Center the button */
+  .ringform-title button {
+    width: 100%;
+    max-width: 550px;
+  }
+  
+  #submit-btn {
+   /* align-items: end;    */
+   display: flex;
+   justify-content: center;
+   padding: 5px;
+  }
+  
+  .my-card{
+    max-height: 95%;
+    overflow-y: auto;
+  }
+  
+  .show-dropdown {
+      width: 72%;
+      color: black;
+  }
+  
+  /* Make the dropdown background transparent */
+  .input-form .dropdown-toggle {
+    background-color: transparent; /* Remove background */
+    color: black; /* Set text color to black */
+    border: 1px solid #ced4da; /* Add a border for visibility */
+    /* padding-right: 1.5rem; */
+    width: 100%;
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Style the caret icon (▼) on the right */
+  .input-form .dropdown-toggle::after {
+    display: none;
+  }
+  
+  .input-form .dropdown-menu .dropdown-item {
+    background-color: transparent;
+    color: black;
+  }
+  
+  .bold {
+      font-weight: bold;
+  }
 
 .cost-summary {
     position: absolute;
-    right: 10%;
+    right: 7%;
     bottom:5%;
     flex: 0.5;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
     background-color: #f9f9f9;
     text-align: center;
@@ -30,13 +121,13 @@ form .input-form{
   
   /* Total cost display */
   .cost-summary h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #333;
   }
 
   #cost-p{
     position: absolute;
-    left: 35%;
+    left: 80%;
     margin: -30px;
   }
