@@ -76,7 +76,7 @@ form .input-form{
   
   .my-card{
     max-height: 95%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
   }
   
   .show-dropdown {
