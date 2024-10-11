@@ -79,7 +79,7 @@ form .input-form{
   }
   
   .show-dropdown {
-      width: 95%;
+      width: 60%;
       color: black;
   }
   
@@ -89,7 +89,7 @@ form .input-form{
     color: black; /* Set text color to black */
     border: 1px solid #ced4da; /* Add a border for visibility */
     /* padding-right: 1.5rem; */
-    width: 100%;
+    width: 60%;
     text-align: left; /* Align text to the left */
   }
   
