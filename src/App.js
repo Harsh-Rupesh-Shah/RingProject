@@ -4,7 +4,7 @@ import RingCanvas3D from './components/ringcanvas3d';
 import './App.css';
 
 function App() {
-  const [ringProperties, setRingProperties] = useState({
+  const initialRingProperties = {
     shankDesignStyle: '', // To store selected shank design
     ringSize: '',          // To store selected ring size
     shankDiameter: '',     // To store selected shank diameter
@@ -15,8 +15,10 @@ function App() {
     solitaire: '',         // To store selected solitaire
     halo: '',              // To store selected halo type
     gold: '',              // To store selected gold type
-    goldPurities: ''    // To store selected gold purity
-  });
+    goldPurities: ''       // To store selected gold purity
+  };
+
+  const [ringProperties, setRingProperties] = useState(initialRingProperties);
 
   const handleInputChange = (name, value) => {
     setRingProperties({
@@ -25,10 +27,14 @@ function App() {
     });
   };
 
+  const handleReset = () => {
+    setRingProperties(initialRingProperties);
+  }
+
   return (
     <div className="app-container">
       <div className="form-side">
-        <RingForm ringProperties={ringProperties} onChange={handleInputChange} />
+        <RingForm ringProperties={ringProperties} onChange={handleInputChange} onReset={handleReset} />
       </div>
       <div className="canvas-side">
         <RingCanvas3D ringProperties={ringProperties} />
