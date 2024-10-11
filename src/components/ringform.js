@@ -54,35 +54,34 @@ function RingForm({ ringProperties, onChange }) {
 
   return (
     <>
-      <div className="ringform-title card my-card">
-        <h2 className="ringform-title-header">Ring Estimation</h2>
-        <form>
-          <div className="input-form">
-            <label className="form-label bold" htmlFor="dropdown-shank-design">
-              Shank Design Style
-            </label>
-            <Dropdown
-              onSelect={(eventKey) =>
-                handleDropdownSelect("shankDesignStyle", eventKey)
-              }
-            >
-              <Dropdown.Toggle id="dropdown-shank-design">
-                {ringProperties.shankDesignStyle || "Select"}
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="show-dropdown">
-                <Dropdown.Item eventKey="No Eternity">
-                  No Eternity
-                </Dropdown.Item>
-                <Dropdown.Item eventKey="Half Eternity">
-                  Half Eternity
-                </Dropdown.Item>
-                <Dropdown.Item eventKey="Full Eternity">
-                  Full Eternity
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <p id="cost-p">Cost: ₹{costs.shankDesign}</p>
-          </div>
+    <div className="ringform-title card my-card">
+      <h2 className="ringform-title-header">Ring Estimation</h2>
+      <form>
+        <div className="input-form">
+          <label className="form-label bold" htmlFor="dropdown-shank-design">
+            Shank Design Style
+          </label>
+          <Dropdown
+            onSelect={(eventKey) =>
+              handleDropdownSelect("shankDesignStyle", eventKey)
+            }
+          >
+            <Dropdown.Toggle id="dropdown-shank-design">
+              {ringProperties.shankDesignStyle || "Select"}
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="show-dropdown">
+              <Dropdown.Item eventKey="No Eternity">No Eternity</Dropdown.Item>
+              <Dropdown.Item eventKey="Half Eternity">
+                Half Eternity
+              </Dropdown.Item>
+              <Dropdown.Item eventKey="Full Eternity">
+                Full Eternity
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <p id='cost-p'>Cost: ₹{costs.shankDesign}</p>
+
+        </div>
 
           <div className="input-form">
             <label className="form-label bold" htmlFor="dropdown-ring-size">
@@ -301,12 +300,12 @@ function RingForm({ ringProperties, onChange }) {
       <div className="cost-summary">
         <h2>Total Cost: ₹{totalCost}</h2>
       </div>
-      <div className="card">
-        <div id="submit-btn">
+    <div className="card">
+    <div id="submit-btn">
           <button className="btn btn-primary me-4 w-100">Reset</button>
           <button className="btn btn-primary w-100">Submit</button>
         </div>
-      </div>
+    </div>
     </>
   );
 }
