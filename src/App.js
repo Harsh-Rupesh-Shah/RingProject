@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RingForm from './components/ringform';
 import RingCanvas3D from './components/ringcanvas3d';
+import GLBViewer from './components/blend';
 import './App.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     solitaire: '',         // To store selected solitaire
     halo: '',              // To store selected halo type
     gold: '',              // To store selected gold type
-    goldPurities: ''    // To store selected gold purity
+    goldPurities: ''       // To store selected gold purity
   });
 
   const handleInputChange = (name, value) => {
@@ -32,6 +33,7 @@ function App() {
       </div>
       <div className="canvas-side">
         <RingCanvas3D ringProperties={ringProperties} />
+        <GLBViewer />
       </div>
     </div>
   );
