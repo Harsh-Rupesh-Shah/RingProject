@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RingForm from './components/ringform';
-import RingCanvas3D from './components/ringcanvas3d';
+// import RingCanvas3D from './components/ringcanvas3d';
 import GLBViewer from './components/blend';
 import './App.css';
 
@@ -21,11 +21,11 @@ function App() {
 
   const [ringProperties, setRingProperties] = useState(initialRingProperties);
 
-  const handleInputChange = (name, value) => {
-    setRingProperties({
-      ...ringProperties,
-      [name]: value
-    });
+  const handleRingPropertyChange = (name, value) => {
+    setRingProperties((prevProperties) => ({
+      ...prevProperties,
+      [name]: value,
+    }));
   };
 
   const handleReset = () => {
@@ -35,11 +35,12 @@ function App() {
   return (
     <div className="app-container">
       <div className="form-side">
-        <RingForm ringProperties={ringProperties} onChange={handleInputChange} onReset={handleReset} />
+        <RingForm ringProperties={ringProperties} onChange={handleRingPropertyChange} onReset={handleReset}
+         />
       </div>
       <div className="canvas-side">
-        <RingCanvas3D ringProperties={ringProperties} />
-        <GLBViewer />
+        {/* <RingCanvas3D ringProperties={ringProperties} /> */}
+        <GLBViewer ringProperties={ringProperties} />
       </div>
     </div>
   );
