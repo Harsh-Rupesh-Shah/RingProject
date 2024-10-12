@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RingForm from './components/ringform';
 import RingCanvas3D from './components/ringcanvas3d';
 import GLBViewer from './components/blend';
+import GLB2 from './components/blend2';
 import './App.css';
 
 function App() {
@@ -32,8 +33,10 @@ function App() {
         <RingForm ringProperties={ringProperties} onChange={handleInputChange} />
       </div>
       <div className="canvas-side">
-        <RingCanvas3D ringProperties={ringProperties} />
+        {/* <RingCanvas3D ringProperties={ringProperties} /> */}
         <GLBViewer />
+        {/* <GLB2/> */}
+      
       </div>
     </div>
   );
