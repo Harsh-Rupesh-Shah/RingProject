@@ -34,8 +34,8 @@ function App() {
       </div>
       <div className="canvas-side">
         {/* <RingCanvas3D ringProperties={ringProperties} /> */}
-        <GLBViewer />
-        {/* <GLB2/> */}
+        {/* <GLBViewer /> */}
+        <GLB2/>
       
       </div>
     </div>
