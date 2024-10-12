@@ -15,6 +15,8 @@
   margin: auto;
   overflow-y: auto;
   padding-left: 4%;
+  height: 680px;
+  position: relative;
 }
 
 .input-form .dropdown-toggle {
@@ -60,7 +62,7 @@ form .input-form{
 }
 
 .my-card{
-  max-height: 100%;
+  /* max-height: 100%; */
 }
 
 .show-dropdown {
