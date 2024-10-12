@@ -55,8 +55,6 @@ const GLBViewer = ({ ringProperties }) => {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <directionalLight position={[5, 5, 5]} intensity={1.5} />
         <pointLight position={[-10, -10, -10]} />
-
-        {/* Environment map for realistic reflections */}
         <Environment preset="city" />
 
         {/* Pass ringProperties to the model to update dynamically */}

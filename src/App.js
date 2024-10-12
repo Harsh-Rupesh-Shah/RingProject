@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RingForm from './components/ringform';
 // import RingCanvas3D from './components/ringcanvas3d';
 import GLBViewer from './components/blend';
+import GLB2 from './components/blend2';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   };
 
   const [ringProperties, setRingProperties] = useState(initialRingProperties);
+  const [ringDisplay, setRingDisplay] = useState(false);
 
   const handleRingPropertyChange = (name, value) => {
     setRingProperties((prevProperties) => ({
@@ -35,12 +37,22 @@ function App() {
   return (
     <div className="app-container">
       <div className="form-side">
-        <RingForm ringProperties={ringProperties} onChange={handleRingPropertyChange} onReset={handleReset}
-         />
+        <RingForm ringProperties={ringProperties} onChange={handleRingPropertyChange} onReset={handleReset} />
+      </div>
+      <div className='options'>
+        <button className="btn-primary" onClick={() => setRingDisplay(false)}>
+          Diamond
+        </button>
+        <button className="btn-primary" onClick={() => setRingDisplay(true)}>
+          Ring
+        </button>
       </div>
       <div className="canvas-side">
+      
+        {ringDisplay ? <GLBViewer ringProperties={ringProperties} /> : <GLB2 />}
         {/* <RingCanvas3D ringProperties={ringProperties} /> */}
-        <GLBViewer ringProperties={ringProperties} />
+        {/* <GLBViewer ringProperties={ringProperties} /> */}
+        {/* <GLB2/> */}
       </div>
     </div>
   );
