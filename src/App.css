@@ -1,6 +1,5 @@
 .app-container {
   display: flex;
-  height: 100vh;
   justify-content: space-between;
 }
 
@@ -9,6 +8,7 @@
   /* padding: 0px; */
   background-color: #f4f4f4;
 }
+
 
 .canvas-side {
   width: 60%;
@@ -20,3 +20,13 @@
 canvas {
   border: 1px solid #ccc;
 }
+
+.options
+{
+  position: absolute;
+  right: 25px;
+  top:26px;
+  z-index: 999999;
+}
+
+
