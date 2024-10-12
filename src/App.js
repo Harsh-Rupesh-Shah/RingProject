@@ -5,7 +5,7 @@ import GLBViewer from './components/blend';
 import './App.css';
 
 function App() {
-  const [ringProperties, setRingProperties] = useState({
+  const initialRingProperties = {
     shankDesignStyle: '', // To store selected shank design
     ringSize: '',          // To store selected ring size
     shankDiameter: '',     // To store selected shank diameter
@@ -17,7 +17,9 @@ function App() {
     halo: '',              // To store selected halo type
     gold: '',              // To store selected gold type
     goldPurities: ''       // To store selected gold purity
-  });
+  };
+
+  const [ringProperties, setRingProperties] = useState(initialRingProperties);
 
   const handleRingPropertyChange = (name, value) => {
     setRingProperties((prevProperties) => ({
@@ -25,6 +27,10 @@ function App() {
       [name]: value,
     }));
   };
+
+  const handleReset = () => {
+    setRingProperties(initialRingProperties);
+  }
 
   return (
     <div className="app-container">

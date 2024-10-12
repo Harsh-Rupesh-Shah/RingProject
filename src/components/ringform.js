@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
-import './ringform.css';
+import React, { useState } from "react";
+import Dropdown from "react-bootstrap/Dropdown";
+import "./ringform.css";
 
-function RingForm({ ringProperties, onChange }) {
+function RingForm({ ringProperties, onChange, onReset }) {
   // State to keep track of the dummy costs
-  const [costs, setCosts] = useState({
+  const initialCosts = {
     shankDesign: 0,
     ringSize: 0,
     shankDiameter: 0,
@@ -16,17 +16,23 @@ function RingForm({ ringProperties, onChange }) {
     halo: 0,
     gold: 0,
     goldPurities: 0,
-  });
+  };
+
+  const [costs, setCosts] = useState(initialCosts);
 
   // Dummy cost mapping for each property
   const costMapping = {
-    shankDesign: { "No Eternity": 100, "Half Eternity": 200, "Full Eternity": 300 },
-    ringSize: { "1": 50, "2": 75, "3": 100 },
+    shankDesign: {
+      "No Eternity": 100,
+      "Half Eternity": 200,
+      "Full Eternity": 300,
+    },
+    ringSize: { 1: 50, 2: 75, 3: 100 },
     shankDiameter: { "1.5mm": 150, "2mm": 175, "2.5mm": 200 },
-    solitaireShape: { "Round": 300, "Princess": 350, "Oval": 400, "Cushion": 450 },
-    cut: { "Excellent": 500, "Very Good": 400, "Good": 300 },
-    color: { "D": 600, "E": 500, "F": 400, "G": 300 },
-    clarity: { "IF": 700, "VVS1": 600, "VVS2": 500, "VS1": 400, "VS2": 300 },
+    solitaireShape: { Round: 300, Princess: 350, Oval: 400, Cushion: 450 },
+    cut: { Excellent: 500, "Very Good": 400, Good: 300 },
+    color: { D: 600, E: 500, F: 400, G: 300 },
+    clarity: { IF: 700, VVS1: 600, VVS2: 500, VS1: 400, VS2: 300 },
     solitaire: { "1ct": 1000, "2ct": 1500 },
     halo: { "Single Halo": 200, "Double Halo": 400 },
     gold: { "Rose Gold": 500, "Yellow Gold": 400, "White Gold": 450 },
@@ -39,10 +45,26 @@ function RingForm({ ringProperties, onChange }) {
 
     // Update cost for the selected property
     const newCost = costMapping[name][eventKey] || 0;
-    setCosts(prevCosts => ({
+    setCosts((prevCosts) => ({
       ...prevCosts,
       [name]: newCost,
     }));
+  };
+
+  const handleReset = () => {
+    setCosts(initialCosts);
+    onChange("shankDesign", "");
+    onChange("ringSize", "");
+    onChange("shankDiameter", "");
+    onChange("solitaireShape", "");
+    onChange("cut", "");
+    onChange("color", "");
+    onChange("clarity", "");
+    onChange("solitaire", "");
+    onChange("halo", "");
+    onChange("gold", "");
+    onChange("goldPurities", "");
+    onReset();
   };
 
   // Calculate total cost
@@ -50,9 +72,20 @@ function RingForm({ ringProperties, onChange }) {
 
   return (
     <>
-    <div className="ringform-title card my-card">
-      <h2 className="ringform-title-header">Ring Estimation</h2>
-      <form>
+      <div className="ringform-title card my-card">
+        <div className="header-with-reset">
+          <h2 className="ringform-title-header">Ring Estimation</h2>
+          <button
+            className="btn reset-button"
+            onClick={handleReset}
+          >
+            Reset
+          </button>
+          <div className="cost-summary">
+            <h2>Total Cost: ₹{totalCost}</h2>
+          </div>
+        </div>
+        <form>
         <div className="input-form">
           <label className="form-label bold" htmlFor="dropdown-shank-design">
             Shank Design Style
@@ -282,12 +315,9 @@ function RingForm({ ringProperties, onChange }) {
           <p id='cost-p'>Cost: ₹{costs.goldPurities}</p>
 
         </div>
-      </form>
-    </div>
-    <div className="cost-summary">
-        <h2>Total Cost: ₹{totalCost}</h2>
+        </form>
       </div>
-    {/* <div className="card">
+      {/* <div className="card">
     <div id="submit-btn">
           <button className="btn btn-primary me-4 w-100">Reset</button>
           <button className="btn btn-primary w-100">Submit</button>
