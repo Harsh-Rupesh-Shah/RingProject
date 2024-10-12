@@ -35,7 +35,8 @@ function App() {
   return (
     <div className="app-container">
       <div className="form-side">
-        <RingForm ringProperties={ringProperties} onChange={handleRingPropertyChange} />
+        <RingForm ringProperties={ringProperties} onChange={handleRingPropertyChange} onReset={handleReset}
+         />
       </div>
       <div className="canvas-side">
         {/* <RingCanvas3D ringProperties={ringProperties} /> */}
